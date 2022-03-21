@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>差分 | 随意</title><meta name="keywords" content="前缀和"><meta name="author" content="白依"><meta name="copyright" content="白依"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="差分相关题目输入一个长度为 nn 的整数序列。 接下来输入 mm 个操作，每个操作包含三个整数 l,r,cl,r,c，表示将序列中 [l,r][l,r] 之间的每个数加上 cc。 请你输出进行完所有操作后的序列。 输入格式第一行包含两个整数 nn 和 mm。 第二行包含 nn 个整数，表示整数序列。 接下来 mm 行，每行包含三个整数 l，r，cl，r，c，表示一个操作。 输出格式共一行，包含 n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="差分">
+<meta property="og:url" content="http://baiyi-ing.github.io/2022/03/14/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/%E5%B7%AE%E5%88%86/index.html">
+<meta property="og:site_name" content="随意">
+<meta property="og:description" content="差分相关题目输入一个长度为 nn 的整数序列。 接下来输入 mm 个操作，每个操作包含三个整数 l,r,cl,r,c，表示将序列中 [l,r][l,r] 之间的每个数加上 cc。 请你输出进行完所有操作后的序列。 输入格式第一行包含两个整数 nn 和 mm。 第二行包含 nn 个整数，表示整数序列。 接下来 mm 行，每行包含三个整数 l，r，cl，r，c，表示一个操作。 输出格式共一行，包含 n">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://baiyi-ing.github.io/img/1.jpg">
+<meta property="article:published_time" content="2022-03-14T02:55:02.000Z">
+<meta property="article:modified_time" content="2022-03-21T20:27:47.435Z">
+<meta property="article:author" content="白依">
+<meta property="article:tag" content="前缀和">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://baiyi-ing.github.io/img/1.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://baiyi-ing.github.io/2022/03/14/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/%E5%B7%AE%E5%88%86/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '差分',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-22 04:27:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.1"><link rel="alternate" href="/atom.xml" title="随意" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/%E5%8A%A8%E6%BC%AB4.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">随意</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 档案</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 列表</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">差分</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-14T02:55:02.000Z" title="发表于 2022-03-14 10:55:02">2022-03-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-21T20:27:47.435Z" title="更新于 2022-03-22 04:27:47">2022-03-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="差分"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="差分"><a href="#差分" class="headerlink" title="差分"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/799/">差分</a></h1><h2 id="相关题目"><a href="#相关题目" class="headerlink" title="相关题目"></a>相关题目</h2><p>输入一个长度为 nn 的整数序列。</p>
+<p>接下来输入 mm 个操作，每个操作包含三个整数 l,r,cl,r,c，表示将序列中 [l,r][l,r] 之间的每个数加上 cc。</p>
+<p>请你输出进行完所有操作后的序列。</p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含两个整数 nn 和 mm。</p>
+<p>第二行包含 nn 个整数，表示整数序列。</p>
+<p>接下来 mm 行，每行包含三个整数 l，r，cl，r，c，表示一个操作。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>共一行，包含 nn 个整数，表示最终序列。</p>
+<h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>1≤n,m≤1000001≤n,m≤100000,<br>1≤l≤r≤n1≤l≤r≤n,<br>−1000≤c≤1000−1000≤c≤1000,<br>−1000≤整数序列中元素的值≤1000−1000≤整数序列中元素的值≤1000</p>
+<h3 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">6 3</span><br><span class="line">1 2 2 1 2 1</span><br><span class="line">1 3 1</span><br><span class="line">3 5 1</span><br><span class="line">1 6 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 4 5 3 4 2</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="算法思想"><a href="#算法思想" class="headerlink" title="算法思想"></a>算法思想</h2><ol>
+<li><p>差分可以用于计算其中任意一段数组的加减，并且每次加减时间控制在O(1)</p>
+</li>
+<li><p>差分是前缀和的逆运算（<a href="https://baiyi-ing.github.io/2022/03/07/Java%E5%9F%BA%E7%A1%80/%E4%B8%80%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a>是预先知道a[n],后计算S[n],以达到可以在O(1)时间段内，计算任意一段数据的和的目的）</p>
+</li>
+<li><p>前置条件：假设原来给定数组为S[n]（或自己计算出S[n]）,则计算差分数组可以为**a[n] &#x3D; S[n]-S[n-1]**。</p>
+</li>
+<li><p>计算基础：计算让原来的素组任意一段加减一个常数c，相当于<strong>S[l~r]-c</strong></p>
+</li>
+<li><p>核心计算：要知道某一段<strong>前缀和数据S[l~r]突然全部加了相同的一个数</strong>，可以被看做<strong>a[n]中的一个数据加了c而导致的连锁效应</strong>，而且S[0 ~ l-1]，S[r+1<del>n]两段数据值没有改变，那我们就可以把**S[l</del>r]+c**这个过程简化为 <strong>a[l]+c， a[r+1]-c</strong>，这样复杂度就瞬间见下降。</p>
+</li>
+</ol>
+<h2 id="笔者代码"><a href="#笔者代码" class="headerlink" title="笔者代码"></a>笔者代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="comment">/**一维差分</span></span><br><span class="line"><span class="comment"> * 给某一段加上数值*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> scanner.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//输入si</span></span><br><span class="line">        <span class="type">int</span>[] si = <span class="keyword">new</span> <span class="title class_">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            si[i] = scanner.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//计算ai = s[i]-s[i-1]</span></span><br><span class="line">        <span class="type">int</span>[] ai = <span class="keyword">new</span> <span class="title class_">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= n ; i++) &#123;</span><br><span class="line">            ai[i] = si[i] -si[i-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//由题可知s[l~r]+c = c+bl+......+br不影响s[l]之前</span></span><br><span class="line">        <span class="comment">//为了不影响s[r]之后的前缀和数值，我们将b[r+1]-c</span></span><br><span class="line">        <span class="comment">//则s[l~r]可以简化为 b[l]+=c,b[r]-=c</span></span><br><span class="line">        <span class="type">int</span> l,r,c;</span><br><span class="line">        <span class="keyword">while</span>(m--&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            l = scanner.nextInt();</span><br><span class="line">            r = scanner.nextInt();</span><br><span class="line">            c = scanner.nextInt();</span><br><span class="line"></span><br><span class="line">            ai[l] += c;</span><br><span class="line">            <span class="keyword">if</span>(r&lt;n)&#123;</span><br><span class="line">                ai[r+<span class="number">1</span>] -= c;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//更新si</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            si[i] = ai[i] + si[i-<span class="number">1</span>];</span><br><span class="line">            System.out.print(si[i] + <span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="相关简单题"><a href="#相关简单题" class="headerlink" title="相关简单题"></a>相关简单题</h2><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/799/">AcWing 797. 差分</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/2043/">AcWing 2041. 干草堆</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:null">白依</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://baiyi-ing.github.io/2022/03/14/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/%E5%B7%AE%E5%88%86/">http://baiyi-ing.github.io/2022/03/14/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/%E5%B7%AE%E5%88%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://baiyi-ing.github.io" target="_blank">随意</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a></div><div class="post_share"><div class="social-share" data-image="/img/1.jpg" data-sites="facebook,twitter,wechat,weibo,qq,csdn"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/03/14/%E5%8A%9B%E6%89%A3/%E5%8A%9B%E6%89%A3-599%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%E7%9A%84%E6%9C%80%E5%B0%8F%E7%B4%A2%E5%BC%95%E6%80%BB%E5%92%8C/"><img class="prev-cover" src="/img/3.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">力扣-599两个列表的最小索引总和</div></div></a></div><div class="next-post pull-right"><a href="/2022/03/07/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/"><img class="next-cover" src="/img/2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">二维前缀和</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/03/07/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/%E4%B8%80%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/" title="一维前缀和"><img class="cover" src="/img/4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-07</div><div class="title">一维前缀和</div></div></a></div><div><a href="/2022/03/07/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C/" title="二维前缀和"><img class="cover" src="/img/2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-07</div><div class="title">二维前缀和</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/%E5%8A%A8%E6%BC%AB4.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">白依</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/baiyi-ing" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%AE%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">差分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%A2%98%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text">相关题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.1.1.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.1.2.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="toc-number">2.1.3.</span> <span class="toc-text">数据范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="toc-number">2.1.4.</span> <span class="toc-text">输入样例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B%EF%BC%9A"><span class="toc-number">2.1.5.</span> <span class="toc-text">输出样例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3"><span class="toc-number">2.2.</span> <span class="toc-text">算法思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%94%E8%80%85%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.</span> <span class="toc-text">笔者代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%AE%80%E5%8D%95%E9%A2%98"><span class="toc-number">2.4.</span> <span class="toc-text">相关简单题</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/18/ACwing/ACwing3370-%E7%89%9B%E5%B9%B4/" title="ACwing3370-牛年"><img src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ACwing3370-牛年"/></a><div class="content"><a class="title" href="/2022/03/18/ACwing/ACwing3370-%E7%89%9B%E5%B9%B4/" title="ACwing3370-牛年">ACwing3370-牛年</a><time datetime="2022-03-18T10:10:24.000Z" title="发表于 2022-03-18 18:10:24">2022-03-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/15/%E5%8A%9B%E6%89%A3/%E5%8A%9B%E6%89%A32044-%E7%BB%9F%E8%AE%A1%E6%8C%89%E4%BD%8D%E6%88%96%E8%83%BD%E5%BE%97%E5%88%B0%E6%9C%80%E5%A4%A7%E5%80%BC%E7%9A%84%E5%AD%90%E9%9B%86%E6%95%B0%E7%9B%AE/" title="力扣2044-统计按位或能得到最大值的子集数目"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="力扣2044-统计按位或能得到最大值的子集数目"/></a><div class="content"><a class="title" href="/2022/03/15/%E5%8A%9B%E6%89%A3/%E5%8A%9B%E6%89%A32044-%E7%BB%9F%E8%AE%A1%E6%8C%89%E4%BD%8D%E6%88%96%E8%83%BD%E5%BE%97%E5%88%B0%E6%9C%80%E5%A4%A7%E5%80%BC%E7%9A%84%E5%AD%90%E9%9B%86%E6%95%B0%E7%9B%AE/" title="力扣2044-统计按位或能得到最大值的子集数目">力扣2044-统计按位或能得到最大值的子集数目</a><time datetime="2022-03-15T12:10:11.000Z" title="发表于 2022-03-15 20:10:11">2022-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/14/ACwing/ACwing2060-%E5%A5%B6%E7%89%9B%E9%80%89%E7%BE%8E/" title="ACwing2060-奶牛选美"><img src="/img/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ACwing2060-奶牛选美"/></a><div class="content"><a class="title" href="/2022/03/14/ACwing/ACwing2060-%E5%A5%B6%E7%89%9B%E9%80%89%E7%BE%8E/" title="ACwing2060-奶牛选美">ACwing2060-奶牛选美</a><time datetime="2022-03-14T12:49:34.000Z" title="发表于 2022-03-14 20:49:34">2022-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/14/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/N%E7%9A%87%E5%90%8E/" title="N皇后"><img src="/img/2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="N皇后"/></a><div class="content"><a class="title" href="/2022/03/14/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/N%E7%9A%87%E5%90%8E/" title="N皇后">N皇后</a><time datetime="2022-03-14T11:11:01.000Z" title="发表于 2022-03-14 19:11:01">2022-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/14/%E5%8A%9B%E6%89%A3/%E5%8A%9B%E6%89%A3-599%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%E7%9A%84%E6%9C%80%E5%B0%8F%E7%B4%A2%E5%BC%95%E6%80%BB%E5%92%8C/" title="力扣-599两个列表的最小索引总和"><img src="/img/3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="力扣-599两个列表的最小索引总和"/></a><div class="content"><a class="title" href="/2022/03/14/%E5%8A%9B%E6%89%A3/%E5%8A%9B%E6%89%A3-599%E4%B8%A4%E4%B8%AA%E5%88%97%E8%A1%A8%E7%9A%84%E6%9C%80%E5%B0%8F%E7%B4%A2%E5%BC%95%E6%80%BB%E5%92%8C/" title="力扣-599两个列表的最小索引总和">力扣-599两个列表的最小索引总和</a><time datetime="2022-03-14T09:35:27.000Z" title="发表于 2022-03-14 17:35:27">2022-03-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 白依</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://baiyi-ing.github.io/2022/03/14/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E7%9F%A5%E8%AF%86/%E5%B7%AE%E5%88%86/'
+    this.page.identifier = '2022/03/14/基础算法知识/差分/'
+    this.page.title = '差分'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="true" data-text="俺,是,菜,鸟" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
