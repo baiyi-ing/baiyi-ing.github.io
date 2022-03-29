@@ -6,7 +6,7 @@
   <link href="http://baiyi-ing.github.io/atom.xml" rel="self"/>
   
   <link href="http://baiyi-ing.github.io/"/>
-  <updated>2022-03-21T20:27:47.419Z</updated>
+  <updated>2022-03-29T04:48:42.342Z</updated>
   <id>http://baiyi-ing.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>牛客小白月赛-C英文作文</title>
+    <link href="http://baiyi-ing.github.io/2022/03/25/%E7%89%9B%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%9C%88%E8%B5%9B-C%E8%8B%B1%E6%96%87/"/>
+    <id>http://baiyi-ing.github.io/2022/03/25/%E7%89%9B%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%9C%88%E8%B5%9B-C%E8%8B%B1%E6%96%87/</id>
+    <published>2022-03-25T12:54:24.000Z</published>
+    <updated>2022-03-29T04:48:42.342Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="英文作文"><a href="#英文作文" class="headerlink" title="英文作文"></a><a href="https://ac.nowcoder.com/acm/contest/11223/C">英文作文</a></h1><h2 id="详细题目"><a href="#详细题目" class="headerlink" title="详细题目"></a>详细题目</h2><p>链接：<a href="https://ac.nowcoder.com/acm/contest/11223/C">https://ac.nowcoder.com/acm/contest/11223/C</a><br>来源：牛客网</p><p>时间限制：C&#x2F;C++ 1秒，其他语言2秒<br>            空间限制：C&#x2F;C++ 262144K，其他语言524288K<br>             64bit IO Format: %lld</p><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>  在写英语作文的时候，两个相同单词靠的太近肯定不好。现在 ZHR 给了你一段nnn个单词的英文，问你有多少对相同单词中间间隔的单词数小于等于kkk 。 </p><h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一行两个整数，为n和k 。</span><br><span class="line"></span><br><span class="line">第二行n个由仅小写字母组成的单词。每个单词长度小于等于10 。</span><br><span class="line">1≤k≤n≤105</span><br></pre></td></tr></table></figure><h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一行一个正整数，表示有多少对单词中间间隔的单词数小于等于kkk 。</span><br></pre></td></tr></table></figure><p> 示例1                        </p><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p><a href="javascript:void(0);">复制</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">11 2</span><br><span class="line">i love you you love mi mixue ice cream and tea</span><br></pre></td></tr></table></figure><h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><p><a href="javascript:void(0);">复制</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure><h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只有 you 和 love 两个单词间隔的单词数小于等于222</span><br></pre></td></tr></table></figure><p> 示例2                        </p><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h3><p><a href="javascript:void(0);">复制</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10 2</span><br><span class="line">a a a a a a a a a a</span><br></pre></td></tr></table></figure><h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h3><p><a href="javascript:void(0);">复制</a></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">24</span><br></pre></td></tr></table></figure><h2 id="笔者解析"><a href="#笔者解析" class="headerlink" title="笔者解析"></a>笔者解析</h2><ol><li>本题使用暴力解法超时，笔者因为暴力而罚时-3</li><li>本题宜采取<strong>哈希表+滑动窗口</strong>的模式，来计算合法范围内的相同对数</li><li>使用<strong>res+&#x3D;此字符串出现次数-1</strong>的方式，来计算此字符在范围内的出现次数</li></ol><h2 id="笔者代码"><a href="#笔者代码" class="headerlink" title="笔者代码"></a>笔者代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line">map&lt;string,<span class="type">int</span>&gt;q;</span><br><span class="line">string s[N];</span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    k+=<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) cin&gt;&gt;s[i];</span><br><span class="line">    LL res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;=k) </span><br><span class="line">        &#123;</span><br><span class="line">            q[s[i]]++;</span><br><span class="line">            <span class="keyword">if</span>(q[s[i]]&gt;<span class="number">1</span>) res+=q[s[i]]<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//当余下的长度，或本来的长度大于k，使用滑动窗口算法</span></span><br><span class="line">            <span class="comment">//记录开头的数字s[i-k]个数减一在窗口数组中，相当于向右滑动的初始</span></span><br><span class="line">            q[s[i-k]]--;</span><br><span class="line">            <span class="comment">//记录结尾的数字s[i]个数加一在窗口数组中，相当于向右滑动结尾</span></span><br><span class="line">            q[s[i]]++;</span><br><span class="line">            <span class="comment">//s[i]的数目大于1时，则窗口范围内数组对数个数为s[i]的数目减一</span></span><br><span class="line">            <span class="keyword">if</span>(q[s[i]]&gt;<span class="number">1</span>) res+=q[s[i]]<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;英文作文&quot;&gt;&lt;a href=&quot;#英文作文&quot; class=&quot;headerlink&quot; title=&quot;英文作文&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11223/C&quot;&gt;英文作文&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=</summary>
+      
+    
+    
+    
+    
+    <category term="哈希表" scheme="http://baiyi-ing.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+    <category term="滑动窗口" scheme="http://baiyi-ing.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>ACwing3370-牛年</title>
@@ -442,28 +466,6 @@
     
     
     <category term="JAVA" scheme="http://baiyi-ing.github.io/tags/JAVA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Static内存分析</title>
-    <link href="http://baiyi-ing.github.io/2021/04/25/Java%E5%9F%BA%E7%A1%80/Static%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
-    <id>http://baiyi-ing.github.io/2021/04/25/Java%E5%9F%BA%E7%A1%80/Static%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</id>
-    <published>2021-04-25T11:06:41.000Z</published>
-    <updated>2022-03-21T20:27:47.430Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Static内存分析"><a href="#Static内存分析" class="headerlink" title="Static内存分析"></a>Static内存分析</h1><h2 id="一-基础须知"><a href="#一-基础须知" class="headerlink" title="一.基础须知"></a>一.基础须知</h2><h4 id="1-静态变量"><a href="#1-静态变量" class="headerlink" title="1.静态变量"></a>1.静态变量</h4><p>1）定义：</p><p>在一个Java类中，可以使用static关键字来修饰全员变量，该变量被称作静态变量</p><p>2）访问形式：</p><p>​        类名 . 变量名</p><p>​        实例名 . 变量名</p><p>3） <strong>只能修饰成员变量，不能修饰局部变量</strong></p><h4 id="2-静态方法"><a href="#2-静态方法" class="headerlink" title="2.静态方法"></a>2.静态方法</h4><p>1）定义：被static关键字修饰的方法被称为静态方法</p><p>2）访问形式：</p><p>​        类名 .  静态方法名</p><p>​        实例名 . 静态方法名</p><p>3）说明：</p><p>​        <strong>非静态方法可以访问静态方法或非静态方法的，静态只能访问静态的</strong></p><p>​    原因： 静态方法或变量随着类的加载而加载，而非静态的方法或变量随着对象的创建而加载。</p><h4 id="3-静态代码块"><a href="#3-静态代码块" class="headerlink" title="3.静态代码块"></a>3.静态代码块</h4><p>1）再JAVA中，使用一堆大括号包围起来的若干行代码被称为一个代码块</p><p>2）使用static关键字修饰的代码块称为静态代码块。</p><p>3）当类被加载时，静态代码块会执行，并且只执行一次。</p><p>4）在程序中，经常使用静态代码块来对类的成员变量进行初始化</p><p><img src="https://i.loli.net/2021/04/25/yguYPxIbNFtwnek.png" alt="image.png"></p><h4 id="4-非静态方法中不能创建-静态变量"><a href="#4-非静态方法中不能创建-静态变量" class="headerlink" title="4.非静态方法中不能创建 静态变量"></a>4.非静态方法中不能创建 静态变量</h4><p>原因：静态变量的<strong>核心是数据共享</strong>，则优先存在于全体，可全体使用，而成员方法里定义的变量是局部变量，<strong>局部变量只在这个方法里生效</strong>，非静态方法中创建静态变量 <strong>与静态变量的数据共享相违背</strong></p><p><img src="https://i.loli.net/2021/04/25/jQP9pHBxEM7XgDc.png" alt="image.png"></p><h4 id="5-静态方法不能访问非静态方法"><a href="#5-静态方法不能访问非静态方法" class="headerlink" title="5.静态方法不能访问非静态方法"></a>5.静态方法不能访问非静态方法</h4><p>原因：静态方法的核心也为<strong>数据共享</strong>，而非静态方法则优先存在于全体，可全体使用，<strong>非静态方法只有调用才存在生效否则不起作用</strong>，<strong>与静态方法的优先已知存在于集体相违背</strong></p><p><img src="https://i.loli.net/2021/04/25/l7ZeGhHKkung6c3.png" alt="image.png"></p><h2 id="二-静态内存分析"><a href="#二-静态内存分析" class="headerlink" title="二.静态内存分析"></a>二.静态内存分析</h2><p>​    <img src="https://i.loli.net/2021/04/25/vXkDpMRhjVlQNA2.png" alt="image.png"></p><p><strong>问</strong>：你觉得静态变量应该在1.栈内存 2.堆内存 3.方法区  中的哪一个呢？</p><p><strong>答</strong>：3.方法区</p><p><img src="https://i.loli.net/2021/04/25/yRULoZwANHCec8J.png" alt="image.png"></p><p>解析：如上图所示static应该在方法区，因为<strong>方法区中有共享区来专门存放静态数据</strong>，比如静态变量，静态方法，静态代码块。如图所示序号为<strong>存在优先级</strong>。</p><hr><p>深度解析共享数据即：     <em><strong>1.全体可使用的数据</strong></em></p><p>​                                            <em><strong>2.在用时随时可用</strong></em></p><p>​                                            <em><strong>3.优先整体存在</strong></em></p><hr><p>则在调用中，静态方法不能在非静态方法中所创造，因为非静态方法中的<strong>变量不能满足全体可使用，数据共享</strong></p><p>则在调用中，非静态成员方法不能调用静态方法，应为静态方法优先存在，非静态成员方法在堆中要由程序员开辟，则存在逻辑问题——<strong>一个还未被创造开辟的（或者说优先存在级最低的）方法如何能创造一个已经优先他存在的静态函数</strong></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Static内存分析&quot;&gt;&lt;a href=&quot;#Static内存分析&quot; class=&quot;headerlink&quot; title=&quot;Static内存分析&quot;&gt;&lt;/a&gt;Static内存分析&lt;/h1&gt;&lt;h2 id=&quot;一-基础须知&quot;&gt;&lt;a href=&quot;#一-基础须知&quot; class=&quot;</summary>
-      
-    
-    
-    
-    
-    <category term="Java基础知识" scheme="http://baiyi-ing.github.io/tags/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
