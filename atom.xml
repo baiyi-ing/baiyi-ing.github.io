@@ -6,7 +6,7 @@
   <link href="http://baiyi-ing.github.io/atom.xml" rel="self"/>
   
   <link href="http://baiyi-ing.github.io/"/>
-  <updated>2022-05-12T11:19:59.862Z</updated>
+  <updated>2022-05-12T13:58:03.729Z</updated>
   <id>http://baiyi-ing.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端规划</title>
+    <link href="http://baiyi-ing.github.io/2022/05/12/%E5%89%8D%E7%AB%AF%E8%A7%84%E5%88%92/"/>
+    <id>http://baiyi-ing.github.io/2022/05/12/%E5%89%8D%E7%AB%AF%E8%A7%84%E5%88%92/</id>
+    <published>2022-05-12T12:38:52.000Z</published>
+    <updated>2022-05-12T13:58:03.729Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>此前端规划只是初版，后续会找朋友帮忙提供相应改进意见，如果后期笔者只是想要入门学习的话，笔者最多会规划实行前三阶段，等确定好大方向后，笔者会选择是否深入话学习</strong></p><p><strong>第一阶段</strong></p><p>入门很显然要从<strong>HTML和css</strong>开始打基础，后学习<strong>js</strong>相关技术，然后学习一个入门框架**<a href="https://baike.baidu.com/item/jQuery/5385065?fr=aladdin">jQuery</a>**</p><p><img src="https://s2.loli.net/2022/05/12/MKBSlJVfULuZamx.png" alt="image.png"></p><p><strong>第二阶段</strong></p><p>主要是HTML5的学习和移动web开发</p><p><img src="https://s2.loli.net/2022/05/12/f8NQGeOXb7ycYW3.png" alt="image.png"></p><p><strong>第三阶段</strong></p><p>主要是HTTP的学习和<strong>AJAX</strong>编程学习</p><p><img src="https://s2.loli.net/2022/05/12/8lFBpHagU7zvwhs.png" alt="image.png"></p><p><strong>第四阶段</strong></p><p><img src="https://s2.loli.net/2022/05/12/HXZpotwi69gWCbK.png" alt="BF_M8K51__CF@ICU_O_B8QH.png"></p><p><strong>第五阶段</strong></p><p><img src="https://s2.loli.net/2022/05/12/efauTmhJ1F4iLc2.png" alt="image.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;此前端规划只是初版，后续会找朋友帮忙提供相应改进意见，如果后期笔者只是想要入门学习的话，笔者最多会规划实行前三阶段，等确定好大方向后，笔者会选择是否深入话学习&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一阶段&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;入门很显</summary>
+      
+    
+    
+    
+    
+    <category term="前端" scheme="http://baiyi-ing.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>ACwing4417-选区间</title>
@@ -445,30 +469,6 @@
     
     
     <category term="欧几里得算法" scheme="http://baiyi-ing.github.io/tags/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>力扣373-查找和最小的K队数字</title>
-    <link href="http://baiyi-ing.github.io/2022/01/15/%E5%8A%9B%E6%89%A3/%E5%8A%9B%E6%89%A3373-%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9C%80%E5%B0%8F%E7%9A%84K%E9%98%9F%E6%95%B0%E5%AD%97/"/>
-    <id>http://baiyi-ing.github.io/2022/01/15/%E5%8A%9B%E6%89%A3/%E5%8A%9B%E6%89%A3373-%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9C%80%E5%B0%8F%E7%9A%84K%E9%98%9F%E6%95%B0%E5%AD%97/</id>
-    <published>2022-01-15T02:31:28.000Z</published>
-    <updated>2022-03-21T20:27:47.446Z</updated>
-    
-    <content type="html"><![CDATA[<p>题目：<a href="https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/">力扣</a></p><p>解题思路：</p><p>可以先了解一下<a href="https://www.cnblogs.com/wei-jing/p/10806236.html">优先队列</a></p><p>对于集合中找前K小的元素，常用的方法是可以使用大小为K的大根堆（用一个降序的优先队列实现），依次遍历集合中的元素</p><p>当堆未满时，即元素个数小于K<br>                直接将元素加入到堆里</p><p>当堆满了时<br>                若当前元素大于堆顶，则跳过</p><p>​                若当前元素不大于堆顶，则将堆顶移除，在堆中加入当前元素</p><p>​                最后，堆里的元素就是前K小的元素。<br>———————————————————————————————————</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public List&lt;List&lt;Integer&gt;&gt; kSmallestPairs(int[] nums1, int[] nums2, int k) &#123;</span><br><span class="line">        PriorityQueue&lt;List&lt;Integer&gt;&gt; queue = new PriorityQueue&lt;&gt;(k, (o1,o2)-&gt;&#123;return (o2.get(0)+o2.get(1) - o1.get(0)-o1.get(1));&#125;);</span><br><span class="line">        for(int i = 0; i &lt; Math.min(nums1.length, k); i++)&#123;</span><br><span class="line">            for(int j = 0; j &lt; Math.min(nums2.length, k); j++)&#123;</span><br><span class="line">                if(queue.size() == k &amp;&amp; (queue.peek().get(0)+ queue.peek().get(1) &lt; nums1[i]+nums2[j]) )&#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">                //没有break表示当前的和小于最大的，若队列满了则把最大的出队，再加入当前的</span><br><span class="line">                if(queue.size() == k)&#123;</span><br><span class="line">                    queue.poll();</span><br><span class="line">                &#125;</span><br><span class="line">                ArrayList&lt;Integer&gt; new_pair = new ArrayList&lt;&gt;();</span><br><span class="line">                new_pair.add(nums1[i]);</span><br><span class="line">                new_pair.add(nums2[j]);</span><br><span class="line">                queue.add(new_pair);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;();</span><br><span class="line">        while(!queue.isEmpty())&#123;</span><br><span class="line">            res.add(0, queue.poll());</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;题目：&lt;a href=&quot;https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/&quot;&gt;力扣&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;解题思路：&lt;/p&gt;
-&lt;p&gt;可以先了解一下&lt;a href=&quot;https://www.cnb</summary>
-      
-    
-    
-    
-    
-    <category term="优先队列" scheme="http://baiyi-ing.github.io/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
