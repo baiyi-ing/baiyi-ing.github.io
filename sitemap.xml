@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://baiyi-ing.github.io/2022/06/21/cf1676-D-X-Sum/</loc>
+    
+    <lastmod>2022-06-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://baiyi-ing.github.io/2022/06/21/ACwing4484-%E6%9C%89%E9%99%90%E5%B0%8F%E6%95%B0/</loc>
     
     <lastmod>2022-06-21</lastmod>
@@ -600,6 +609,13 @@
   
   <url>
     <loc>http://baiyi-ing.github.io/tags/%E7%BA%A6%E6%95%B0/</loc>
+    <lastmod>2022-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://baiyi-ing.github.io/tags/%E6%A3%8B%E7%9B%98%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2022-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
