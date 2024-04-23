@@ -6,7 +6,7 @@
   <link href="http://baiyi-ing.github.io/atom.xml" rel="self"/>
   
   <link href="http://baiyi-ing.github.io/"/>
-  <updated>2024-04-20T09:32:05.059Z</updated>
+  <updated>2024-04-23T06:20:12.181Z</updated>
   <id>http://baiyi-ing.github.io/</id>
   
   <author>
@@ -17,9 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>git提交分支——同时提交冲突</title>
+    <link href="http://baiyi-ing.github.io/2024/04/23/git%E6%8F%90%E4%BA%A4%E5%88%86%E6%94%AF%E2%80%94%E2%80%94%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%86%B2%E7%AA%81/"/>
+    <id>http://baiyi-ing.github.io/2024/04/23/git%E6%8F%90%E4%BA%A4%E5%88%86%E6%94%AF%E2%80%94%E2%80%94%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%86%B2%E7%AA%81/</id>
+    <published>2024-04-23T05:44:51.000Z</published>
+    <updated>2024-04-23T06:20:12.181Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="报错提示"><a href="#报错提示" class="headerlink" title="报错提示"></a>报错提示</h1><p><strong>Need to specify how to reconcile divergent branches</strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> * branch            tooltipPromptTime -&gt; <span class="variable constant_">FETCH_HEAD</span></span><br><span class="line"><span class="attr">hint</span>: <span class="title class_">You</span> have divergent branches and need to specify how to reconcile them.</span><br><span class="line"><span class="attr">hint</span>: <span class="title class_">You</span> can <span class="keyword">do</span> so by running one <span class="keyword">of</span> the following commands sometime before</span><br><span class="line"><span class="attr">hint</span>: your next <span class="attr">pull</span>:</span><br><span class="line"><span class="attr">hint</span>: </span><br><span class="line"><span class="attr">hint</span>:   git config pull.<span class="property">rebase</span> <span class="literal">false</span>  # merge</span><br><span class="line"><span class="attr">hint</span>:   git config pull.<span class="property">rebase</span> <span class="literal">true</span>   # rebase</span><br><span class="line"><span class="attr">hint</span>:   git config pull.<span class="property">ff</span> only       # fast-forward only</span><br><span class="line"><span class="attr">hint</span>: </span><br><span class="line"><span class="attr">hint</span>: <span class="title class_">You</span> can replace <span class="string">&quot;git config&quot;</span> <span class="keyword">with</span> <span class="string">&quot;git config --global&quot;</span> to set a <span class="keyword">default</span></span><br><span class="line"><span class="attr">hint</span>: preference <span class="keyword">for</span> all repositories. <span class="title class_">You</span> can also pass --rebase, --no-rebase,</span><br><span class="line"><span class="attr">hint</span>: or --ff-only on the command line to override the configured <span class="keyword">default</span> per</span><br><span class="line"><span class="attr">hint</span>: invocation.</span><br><span class="line"><span class="attr">fatal</span>: <span class="title class_">Need</span> to specify how to reconcile divergent branches.</span><br><span class="line">keda@kedadeAir backgroud % </span><br></pre></td></tr></table></figure><h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>我要更新到的分支的历史内容与我当前的文件的内容其实并不相同。</p><p>根据您提供的命令和输出，您似乎正在尝试将名为 tooltipPromptTime 的分支的内容合并到当前分支，<strong>但由于这两个分支有不同的历史</strong>，Git 需要知道您希望如何处理这种分歧</p><h1 id="解决问题方案"><a href="#解决问题方案" class="headerlink" title="解决问题方案"></a>解决问题方案</h1><h2 id="方案一：合并-Merge"><a href="#方案一：合并-Merge" class="headerlink" title="方案一：合并(Merge)"></a>方案一：合并(Merge)</h2><p><strong>合并（Merge）</strong>：如果您希望保留两个分支的历史并创建一个合并提交，可以执行以下命令：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config pull.<span class="property">rebase</span> <span class="literal">false</span></span><br><span class="line">git pull origin 远程分支名字 --allow-unrelated-histories</span><br></pre></td></tr></table></figure><h2 id="方案二：快进（Fast-Forward）"><a href="#方案二：快进（Fast-Forward）" class="headerlink" title="方案二：快进（Fast-Forward）"></a>方案二：快进（Fast-Forward）</h2><p><strong>快进（Fast-Forward）</strong>：如果您希望只有在能够快进的情况下才合并分支，可以执行以下命令：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config pull.<span class="property">ff</span> only</span><br><span class="line">git pull origin 远程分支名字 --allow-unrelated-histories </span><br></pre></td></tr></table></figure><h2 id="方案三：变基（Rebase）"><a href="#方案三：变基（Rebase）" class="headerlink" title="方案三：变基（Rebase）"></a>方案三：变基（Rebase）</h2><p>变基（Rebase）：如果您希望将当前分支的更改建立在 tooltipPromptTime 分支的基础上，并重写当前分支的历史，可以执行以下命令：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config pull.<span class="property">rebase</span> <span class="literal">true</span></span><br><span class="line">git pull origin 远程分支名字 --allow-unrelated-histories</span><br></pre></td></tr></table></figure><h2 id="方案四：拉取远程内容，再操作"><a href="#方案四：拉取远程内容，再操作" class="headerlink" title="方案四：拉取远程内容，再操作"></a>方案四：拉取远程内容，再操作</h2><p>如果只是想拉取 tooltipPromptTime 分支的内容而不合并或变基，您可以使用以下命令：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin 远程分支名字</span><br></pre></td></tr></table></figure><p>这将拉取远程分支内容，但不会更改当前的工作分支。之后，您可以选择是否要合并或变基</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;报错提示&quot;&gt;&lt;a href=&quot;#报错提示&quot; class=&quot;headerlink&quot; title=&quot;报错提示&quot;&gt;&lt;/a&gt;报错提示&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Need to specify how to reconcile divergent branches&lt;/s</summary>
+      
+    
+    
+    
+    
+    <category term="git" scheme="http://baiyi-ing.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>轻量级框架Cookie使用方法</title>
-    <link href="http://baiyi-ing.github.io/2024/04/20/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A1%86%E6%9E%B6Cookie%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>http://baiyi-ing.github.io/2024/04/20/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A1%86%E6%9E%B6Cookie%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
+    <link href="http://baiyi-ing.github.io/2024/04/20/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A1%86%E6%9E%B6Cookie%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>http://baiyi-ing.github.io/2024/04/20/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A1%86%E6%9E%B6Cookie%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
     <published>2024-04-20T09:25:53.000Z</published>
     <updated>2024-04-20T09:32:05.059Z</updated>
     
@@ -68,8 +90,8 @@
   
   <entry>
     <title>大型项目的登录验证方法</title>
-    <link href="http://baiyi-ing.github.io/2024/04/20/%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95/"/>
-    <id>http://baiyi-ing.github.io/2024/04/20/%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95/</id>
+    <link href="http://baiyi-ing.github.io/2024/04/20/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95/"/>
+    <id>http://baiyi-ing.github.io/2024/04/20/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95/</id>
     <published>2024-04-20T02:35:36.000Z</published>
     <updated>2024-04-20T07:34:39.925Z</updated>
     
@@ -93,8 +115,8 @@
   
   <entry>
     <title>axios的使用方法</title>
-    <link href="http://baiyi-ing.github.io/2024/04/19/axios%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
-    <id>http://baiyi-ing.github.io/2024/04/19/axios%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
+    <link href="http://baiyi-ing.github.io/2024/04/19/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/axios%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>http://baiyi-ing.github.io/2024/04/19/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/axios%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</id>
     <published>2024-04-19T12:46:15.000Z</published>
     <updated>2024-04-20T02:17:05.901Z</updated>
     
@@ -117,8 +139,8 @@
   
   <entry>
     <title>vue3与js的router基本使用方式</title>
-    <link href="http://baiyi-ing.github.io/2024/04/17/vue3%E4%B8%8Ejs%E7%9A%84router%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/"/>
-    <id>http://baiyi-ing.github.io/2024/04/17/vue3%E4%B8%8Ejs%E7%9A%84router%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</id>
+    <link href="http://baiyi-ing.github.io/2024/04/17/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/vue3%E4%B8%8Ejs%E7%9A%84router%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/"/>
+    <id>http://baiyi-ing.github.io/2024/04/17/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/vue3%E4%B8%8Ejs%E7%9A%84router%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F/</id>
     <published>2024-04-17T10:54:47.000Z</published>
     <updated>2024-04-18T10:59:59.293Z</updated>
     
@@ -141,8 +163,8 @@
   
   <entry>
     <title>微信小程序调用到接口数据</title>
-    <link href="http://baiyi-ing.github.io/2024/04/15/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E5%88%B0%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE/"/>
-    <id>http://baiyi-ing.github.io/2024/04/15/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E5%88%B0%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE/</id>
+    <link href="http://baiyi-ing.github.io/2024/04/15/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E5%88%B0%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE/"/>
+    <id>http://baiyi-ing.github.io/2024/04/15/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8%E5%88%B0%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE/</id>
     <published>2024-04-15T03:21:37.000Z</published>
     <updated>2024-04-16T12:24:13.982Z</updated>
     
@@ -163,8 +185,8 @@
   
   <entry>
     <title>JS数组</title>
-    <link href="http://baiyi-ing.github.io/2024/04/14/JS%E6%95%B0%E7%BB%84/"/>
-    <id>http://baiyi-ing.github.io/2024/04/14/JS%E6%95%B0%E7%BB%84/</id>
+    <link href="http://baiyi-ing.github.io/2024/04/14/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/JS%E6%95%B0%E7%BB%84/"/>
+    <id>http://baiyi-ing.github.io/2024/04/14/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/JS%E6%95%B0%E7%BB%84/</id>
     <published>2024-04-13T18:41:16.000Z</published>
     <updated>2024-04-16T12:24:13.971Z</updated>
     
@@ -282,8 +304,8 @@
   
   <entry>
     <title>uniapp常见命令</title>
-    <link href="http://baiyi-ing.github.io/2024/03/24/uniapp%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"/>
-    <id>http://baiyi-ing.github.io/2024/03/24/uniapp%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</id>
+    <link href="http://baiyi-ing.github.io/2024/03/24/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/uniapp%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"/>
+    <id>http://baiyi-ing.github.io/2024/03/24/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/uniapp%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</id>
     <published>2024-03-24T11:39:25.000Z</published>
     <updated>2024-04-02T10:51:03.745Z</updated>
     
@@ -430,30 +452,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>牛客小白月赛-环上食虫</title>
-    <link href="http://baiyi-ing.github.io/2022/06/21/2022%E6%9A%91%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E7%89%9B%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%9C%88%E8%B5%9B-%E7%8E%AF%E4%B8%8A%E9%A3%9F%E8%99%AB/"/>
-    <id>http://baiyi-ing.github.io/2022/06/21/2022%E6%9A%91%E5%81%87%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/%E7%89%9B%E5%AE%A2%E5%B0%8F%E7%99%BD%E6%9C%88%E8%B5%9B-%E7%8E%AF%E4%B8%8A%E9%A3%9F%E8%99%AB/</id>
-    <published>2022-06-21T08:25:27.000Z</published>
-    <updated>2022-06-21T09:07:01.564Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h1><p>链接：<a href="https://ac.nowcoder.com/acm/contest/11229/D">https://ac.nowcoder.com/acm/contest/11229/D</a><br>来源：牛客网</p><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>牛牛参加了牛妹的派对。<br> 牛牛面前有一个圆桌，圆桌边缘按顺序摆上了 n 个蛋糕（第一个蛋糕和第 n个蛋糕相邻）。<br> 每个蛋糕都有一个饱腹值和奶油含量。<br> 牛牛不喜欢吃奶油，所以他想要在保证自己能吃饱（所吃蛋糕的饱腹度的和大于等于 sss）的情况下，所选择的蛋糕中奶油含量最大的那一个的奶油含量越低越好。我们知道，牛牛一直都是个绅士。所以他选择的蛋糕应该是相邻的（也就是对应圆上的一段弧（也可以是整个圆））。<br> 现在它想请你帮它计算在能够吃饱的情况下，他吃到蛋糕中奶油含量最高的那一个最低会是多少？</p><p><strong>输入描述:</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入共三行。</span><br><span class="line">第一行两个正整数 n,s 。</span><br><span class="line">接下来的一行 n 个整数 a1...a代表第一个到第 n 个蛋糕每个蛋糕的饱腹值。</span><br><span class="line"></span><br><span class="line">接下来的一行 n个整数 b1...bn 代表第一个到第 n 个蛋糕每个蛋糕的奶油含量。</span><br><span class="line">保证：1≤n≤2×105;   1≤s≤109;   1≤ai,bi≤109 (1≤i≤n);</span><br></pre></td></tr></table></figure><p><strong>输出描述:</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输出共一行代表答案。</span><br><span class="line">特别的，若牛牛吃掉所有蛋糕都无法吃饱                     </span><br></pre></td></tr></table></figure><p><strong>输入</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5 9</span><br><span class="line">4 3 7 6 1</span><br><span class="line">1 3 9 2 5</span><br></pre></td></tr></table></figure><p><strong>输出</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5</span><br></pre></td></tr></table></figure><p><strong>说明</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">选择第 1，2，4，5 个蛋糕：</span><br><span class="line">    饱腹值：4+3+6+1=14&gt;9</span><br><span class="line"></span><br><span class="line">    最大奶油含量：max⁡&#123;1,3,2,5&#125;=5</span><br><span class="line"></span><br><span class="line">所以输出 5。</span><br></pre></td></tr></table></figure><h2 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h2><p>本题使用算法为，环形问题 +  双指针 </p><h3 id="环形问题"><a href="#环形问题" class="headerlink" title="环形问题"></a>环形问题</h3><p>因为牛牛是只吃旁边的蛋糕，而且蛋糕排列呈现环形，我们可以定义大小为 2*n 的数组来进行环形处理。这样无论牛牛从那个蛋糕开始吃，我们都能让这个蛋糕数组的后面有其它所有蛋糕的数据。</p><h3 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h3><p>分析题目可知，我们要在吃的饱的情况下，找到他吃到<strong>蛋糕中奶油含量最高的那一个最低</strong>（若不理解可以看题目说明）会是多少？</p><p>每个蛋糕的最大奶油含量为1&lt;&#x3D;b&lt;&#x3D;10^9,那我们只要在这个范围内进行双指针判定就可以拉，通过双指针定位可以以满足条件的奶油含量。</p><h2 id="笔者代码"><a href="#笔者代码" class="headerlink" title="笔者代码"></a>笔者代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"><span class="keyword">static</span> <span class="type">int</span>[] arr ; </span><br><span class="line"><span class="keyword">static</span> <span class="type">int</span>[] v ;</span><br><span class="line"><span class="keyword">static</span> <span class="type">int</span> s,n;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">n = scanner.nextInt();</span><br><span class="line">s = scanner.nextInt();</span><br><span class="line"><span class="type">long</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span> ;</span><br><span class="line"></span><br><span class="line">arr = <span class="keyword">new</span> <span class="title class_">int</span> [n*<span class="number">2</span>+<span class="number">1</span>]; </span><br><span class="line">v = <span class="keyword">new</span> <span class="title class_">int</span> [n*<span class="number">2</span>+<span class="number">1</span>]; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">arr[i] = scanner.nextInt();</span><br><span class="line">arr[i+n] = arr[i];</span><br><span class="line">sum +=arr[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">v[i] = scanner.nextInt();</span><br><span class="line">v[i+n] = v[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当所有的蛋糕加起来少于，能够吃饱的总量则返回-1</span></span><br><span class="line"><span class="keyword">if</span>(sum&lt;s)&#123;</span><br><span class="line">System.out.println(<span class="string">&quot;-1&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用二分法测算符合范围的奶油的可能</span></span><br><span class="line"><span class="comment">//题目要求为：所选择的蛋糕中奶油含量最大的那一个的奶油含量越低越好</span></span><br><span class="line"><span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> <span class="number">1</span>,r = (<span class="type">int</span>) (<span class="number">1e9</span>+<span class="number">10</span>);</span><br><span class="line"><span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line"><span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> (l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(check(mid))&#123;</span><br><span class="line">r =mid;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">l = mid+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//找到了在符合吃饱要求的情况下，吃到含奶油最多的蛋糕的最小情况</span></span><br><span class="line">System.out.println(l);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">check</span><span class="params">(<span class="type">int</span> ans)</span>&#123;</span><br><span class="line"><span class="type">long</span> <span class="variable">eatcake</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;<span class="number">2</span>*n;i++)&#123;</span><br><span class="line"><span class="comment">//如果有奶油的量，比当前的猜测奶油量还大，就不符合最蛋糕大奶油猜测，</span></span><br><span class="line"><span class="comment">//说明不能像这样连续吃，则重新开始吃</span></span><br><span class="line"><span class="keyword">if</span>(v[i]&gt;ans)&#123;</span><br><span class="line">eatcake = <span class="number">0</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">eatcake+=arr[i];</span><br><span class="line"><span class="comment">//已经能够吃饱，并且奶油量符合范围</span></span><br><span class="line"><span class="keyword">if</span>(eatcake&gt;=s)&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;题目来源&quot;&gt;&lt;a href=&quot;#题目来源&quot; class=&quot;headerlink&quot; title=&quot;题目来源&quot;&gt;&lt;/a&gt;题目来源&lt;/h1&gt;&lt;p&gt;链接：&lt;a href=&quot;https://ac.nowcoder.com/acm/contest/11229/D&quot;&gt;https</summary>
-      
-    
-    
-    
-    
-    <category term="双指针" scheme="http://baiyi-ing.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-    <category term="环问题" scheme="http://baiyi-ing.github.io/tags/%E7%8E%AF%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
